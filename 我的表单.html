@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.mblack
+	{
+		padding-top: 4px;
+		padding-left: 8px;
+		vertical-align: top;
+		white-space: nowrap;
+	}
+	.error {
+		background:url("./cuo.png") no-repeat -3px center/20px 20px;
+		font-weight: bold;
+		padding-left:20px;
+		color: #EA5200;
+	}
+	.checked {
+		font-weight: bold;
+		padding-left:16px;
+		color: #EA5200;
+		background:url("./gou.png") no-repeat center center/20px 20px;
+	}
+</style>
+<body>
+	<form class="cmxform" id="signupForm" method="get" action="">
+		<fieldset>
+			<legend>验证完整的表单</legend>
+			<p>
+				<label for="username">用户名:</label>
+				<input id="username" name="username" type="text">
+			</p>
+			<p>
+				<label for="password">密码:</label>
+				<input id="password" name="password" type="password">
+			</p>
+			<p>
+				<label for="confirm_password">确认密码:</label>
+				<input id="confirm_password" name="confirm_password" type="password">
+			</p>
+			<p>
+				<label for="email">Email:</label>
+				<input id="email" name="email" type="email">
+			</p>
+			<p>
+				<label for="agree">请同意我们的声明</label>
+				<input type="checkbox" class="checkbox" id="agree" name="agree">
+			</p>
+			<div class="col-9 col-offset-2">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;注册&nbsp;&nbsp;">
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>
+<script type="text/javascript" src="./js/lib/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="./js/dist/jquery.validate.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#signupForm").validate({
+			rules: {
+				username: {
+					required: true,
+					minlength: 2
+				},
+				password: {
+					required: true,
+					minlength: 5
+				},
+				confirm_password: {
+					required: true,
+					minlength: 5,
+					equalTo: "#password"
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				"topic[]": {
+					required: "#newsletter:checked",
+					minlength: 2
+				},
+				agree: "required"
+			},
+			messages: {
+				username: {
+					required: "请输入用户名",
+					minlength: "用户名必需由两个字母组成"
+				},
+				password: {
+					required: "请输入密码",
+					minlength: "密码长度不能小于 5 个字母"
+				},
+				confirm_password: {
+					required: "请输入密码",
+					minlength: "密码长度不能小于 5 个字母",
+					equalTo: "两次密码输入不一致"
+				},
+				email: "请输入一个正确的邮箱",
+				agree: "请接受我们的声明",
+				topic: "请选择两个主题"
+			},
+			success:function(label){
+            label.text("").addClass("checked"); //正确的时候输出的样式为checked
+        	},
+           highlight: function(element, errorClass) {
+            $(element).parent().next().find("." + errorClass).removeClass("checked");//表单用户(获取到焦点)操作时如果正确就移除错误的css属性添加正确的css属性
+        	}
+
+    	})
+	})    
+</script>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="./js/lib/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="./js/dist/jquery.validate.min.js"></script>
+<title></title>
+<script type="text/javascript">
+ $(document).ready(function(){
+     $("#student").validate({
+        rules: {
+            number:{required:true,number:true,minlength:10,maxlength:10},
+            name:"required",
+            sex: "required",
+            cardnumber:{
+                required:true,
+                isIdCardNo:true
+            },
+            pass:{
+                required:true,
+                minlength:6,
+                maxlength:20
+            },
+            npass:{
+                required:true,
+                equalTo: "#pass"
+            }
+            
+        },
+        messages: {
+            number: {required:"请输入学号",number:"学号必须为数字",maxlength:"学号必须为10位",minlength:"学号必须为10位",remote:"用户名已存在"},
+            name:"姓名不能为空",
+            sex: "性别不能为空",
+            cardnumber:{
+                required:"身份证号码不能为空",
+                isIdCardNo:"身份证号码输入错误"
+            },
+            pass:{
+                required:"密码不能为空",
+                minlength:"密码必须大于6位",
+                maxlength:"密码必须小于20位"
+            },
+            npass:{
+                required:"必须再次输入密码",
+                equalTo: "密码输入不一致"
+            }
+            
+        },
+        success:function(label){
+            label.text("").addClass("checked").css({'width':'55px','height':'48px'}); //正确的时候输出的样式为checked
+        },
+       
+    });    
+})
+</script>
+<style type="text/css">
+.mblack
+{
+  padding-top: 4px;
+  padding-left: 8px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.error {
+  background:url("./false.png") no-repeat 0px 4px;
+  font-weight: bold;
+  padding-left:16px;
+  color: #EA5200;
+}
+.checked {
+ font-weight: bold;
+  padding-left:16px;
+  color: #EA5200;
+  background:url("./gou.png") no-repeat center center/20px 20px;
+}
+</style>
+</head>
+<body>
+<div class="main">
+<h1><small>学生注册个人信息</small></h1>
+  <form action="/Dority/StudentResgister?action=register" method="post" class="form form-horizontal" id="student" name="student">
+    
+    <div class="row cl">
+      <label class="form-label col-2">学号:</label>
+      <div class="formControls col-3">
+       <input type="text" class="input-text" value="" placeholder="" id="number" name="number">
+      </div>
+      <div class="mblack"> </div>
+     </div>
+     <div class="row cl">
+      <label class="form-label col-2">姓名:</label>
+      <div class="formControls col-3">
+       <input type="text" class="input-text" value="" placeholder="" id="name" name="name">
+      </div>
+      <div class="mblack"> </div>
+     </div>
+     <div class="row cl">
+      <label class="form-label col-2 rad">性别:</label>
+     <div class="formControls col-3">
+                <input type="radio" name="sex" id="sex" value="1" style="margin-top:5px;" /><label style="margin-top:6px;margin-left:10px">男</label>
+                <input type="radio" name="sex" id="sex" style="margin-top:5px;margin-left:25px;" value="2" /><label style="margin-top:6px;margin-left:10px;">女</label>
+    </div>
+      <div class="mblack"> </div>
+     </div>
+      <div class="row cl">
+            <label class="form-label col-2"><span class="c-red">*</span>身份证号码:</label>
+            <div class="formControls col-3">
+                <input type="text" class="input-text" value="" placeholder="" id="cardnumber" name="cardnumber">
+            </div>
+             <div class="mblack"> </div>
+        </div>
+      <div class="row cl">
+            <label class="form-label col-2"><span class="c-red">*</span>密码：</label>
+            <div class="formControls col-3">
+                <input type="password"  autocomplete="off" value="" id="pass" name="pass" class="input-text" >
+            </div>
+             <div class="mblack"> </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-2"><span class="c-red">*</span>确认密码：</label>
+            <div class="formControls col-3">
+                <input type="password"  autocomplete="off" class="input-text" id="npass" name="npass">
+            </div>
+             <div class="mblack"> </div>
+        </div>
+        <div class="row cl">
+            <div class="col-9 col-offset-2">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;注册&nbsp;&nbsp;">
+            </div>
+        </div>
+  </form>
+  </div>
+  <div/>
+</body>
+</html>

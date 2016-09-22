@@ -1,0 +1,180 @@
+@charset "UTF-8";
+body,ul,input,img{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+i{
+    font-style: normal;
+}
+body{
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+}
+.clearfix:before,.clearfix:after{
+    content: '';
+    height: 0;
+    line-height: 0px;
+    display: block;
+    clear:both;
+    visibility: hidden;
+}
+.clearfix{
+    zoom:1;
+}
+@font-face {font-family: 'wdj';
+    src: url('../fonts/icomoon.eot'); /* IE9*/
+    src: url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/icomoon.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/icomoon.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/icomoon.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.login{
+    padding: 25px 20px;
+    border: 1px solid #dedede;
+    width: 1200px;
+    height: 400px;
+    margin:40px auto;
+    background:url('../img/bgc.jpg') no-repeat -125px -600px;
+}
+.login .denglu{
+    width: 490px;
+    margin: 0 auto;
+
+}
+.denglu h2{
+    height: 40px;
+    width: 148px;
+    line-height: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px auto;
+    color: #555555;
+}
+.wdj_font{
+    font-family: wdj;
+}
+.wdj_email:before{
+    content: "\e900";
+    display: inline-block;
+    font-size: 25px;
+    color: #000;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.wdj_denglu:before{
+    content: "\e901";
+    display: inline-block;
+    font-size: 25px;
+    color: #000;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.usename>.input-group,.mima>.input-group{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px 0px 0px 6px;
+    background-color: #eee;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 12px;
+    border: 1px solid #ccc;
+    border-right: 0 none;
+    color: #555;
+    float: left;
+    margin-bottom: 35px;
+    box-sizing: border-box;
+}
+.usename>input,.mima>input{
+    width: 440px;
+    height: 50px;
+    font-size: 20px;
+    outline: none;
+    float: left;
+    border: 0 none;
+    border:1px solid #ccc;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-radius: 0px 6px 6px 0px;
+    margin-bottom: 35px;
+}
+.mima>.btn{
+    height: 50px;
+    font-size: 20px;
+    width: 100px;
+    border-radius:0px 6px 6px 0px;
+    background-color: #5cb85c;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    border: 0 none;
+    box-sizing: border-box;
+    outline: none;
+    float: left;
+}
+.mima>input{
+    width: 340px;
+    border-radius: 0;
+}
+.denglu input:focus{
+    transition: all .3s;
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.mima .btn:hover{
+    color: #fff;
+    background-color: #449d44;
+}
+/*注册部分*/
+.tipwz .tipwz_left{
+    float: left;
+}
+.tipwz .tipwz_right{
+    float: right;
+}
+.tipwz a{
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.tipwz a:hover,.tipwz a:focus{
+    color: #ff0000;
+    /*text-decoration: underline;*/
+}
+/*第三方登录*/
+.dsf{
+    text-align: center;
+    padding:40px 40px 0 40px;
+    box-sizing: border-box;
+}
+.dsf a{
+    width: 85px;
+    height: 85px;
+    border-radius: 85px;
+    border: 1px solid #E7E7E7;
+    margin-right: 40px;
+    display: inline-block;
+}
+.dsf .qq{
+    background: url("../img/qq.png");
+}
+.dsf .sina{
+    background: url("../img/sina.png");
+}
+.dsf .zfb{
+    background: url("../img/zfb.png");
+}
+.dsf a:hover{
+    transition: all 0.4s ease-in;
+    background-color: #fdd31c;
+    border: 1px solid #fdd31c;
+}
+.login p{
+    text-align: center;
+    color: #555555;
+}
